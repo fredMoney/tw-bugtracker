@@ -58,7 +58,7 @@ export default class Ticket extends Component {
                 { getPriorities(this.props.ticket.priority)}
                 <td>{this.props.ticket.status}</td>
                 <td>{this.props.ticket.type}</td>
-                <td>{this.props.ticket.commitLink}</td>
+                <td><a href={this.props.ticket.commitLink} target="_blank" rel="noopener noreferrer">{this.props.ticket.commitLink}</a></td>
                 <td>
                     <Link to={"/edit/" + this.props.ticket._id} className="badge badge-info">Edit</Link>
                     <br></br>

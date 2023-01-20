@@ -8,12 +8,14 @@ export default class CreateUser extends Component {
         super(props);
 
         this.onChangeName = this.onChangeName.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeRole = this.onChangeRole.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
+            password: '',
             email: '',
             role: ''
         }
@@ -29,6 +31,12 @@ export default class CreateUser extends Component {
     onChangeName(e) {
         this.setState({
             name: e.target.value
+        })
+    }
+
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
         })
     }
 
@@ -49,6 +57,7 @@ export default class CreateUser extends Component {
 
         const user = {
             name: this.state.name,
+            password: this.state.password,
             email: this.state.email,
             role: this.state.role
         }
@@ -61,6 +70,7 @@ export default class CreateUser extends Component {
         // clear form
         this.setState({
             name: '',
+            password: '',
             email: '',
             role: ''
         });
@@ -85,6 +95,14 @@ export default class CreateUser extends Component {
                                className="form-control"
                                value={this.state.email}
                                onChange={this.onChangeEmail}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Password: </label>
+                        <input type="password"
+                               className="form-control"
+                               value={this.state.password}
+                               onChange={this.onChangePassword}
                         />
                     </div>
                     <div className="form-group">

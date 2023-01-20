@@ -66,8 +66,8 @@ export default class ManageUsers extends Component {
 	render() {
 		return(
 			<div>
-				<table className="table">
-                    <thead className="thead-light">
+				<table className="table table-dark">
+                    <thead className="thead-dark">
                     <tr>
                         <th>Name</th>
                         <th>Email</th>

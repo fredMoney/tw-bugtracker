@@ -58,8 +58,8 @@ export default class TicketList extends Component {
 			<div>
                 <br></br>
 				<h3>Open Tickets</h3>
-                    <table className="table">
-                        <thead className="thead-light">
+                    <table class="table table-dark">
+                        <thead>
                         <tr>
                             <th>Title</th>
                             <th>Description</th>
@@ -77,8 +77,8 @@ export default class TicketList extends Component {
                     </table>
                 <br></br>
                 <h3>Resolved Tickets</h3>
-                    <table className="table">
-                        <thead className="thead-light">
+                    <table className="table table-dark">
+                        <thead className="thead-dark">
                         <tr>
                             <th>Title</th>
                             <th>Description</th>

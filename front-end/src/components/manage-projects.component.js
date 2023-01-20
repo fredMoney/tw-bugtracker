@@ -56,7 +56,7 @@ export default class ManageProjects extends Component {
             return <Project
             			project={currentProject} 
             			deleteProject={this.deleteProject}
-                        key={currentProject._id}
+                        key={currentProject.id}
                     />;
         })
 	}
@@ -64,8 +64,8 @@ export default class ManageProjects extends Component {
 	render() {
 		return(
 			<div>
-				<table className="table">
-                    <thead className="thead-light">
+				<table className="table table-dark">
+                    <thead className="thead-dark">
                     <tr>
                         <th>Name</th>
                         <th>Actions</th>

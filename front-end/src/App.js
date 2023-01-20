@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import components
 import Navbar from "./components/navbar.component";
 import Sidebar from "./components/sidebar.component";
-import Dashboard from "./components/dashboard.component";
+import TicketList from "./components/ticket-list.component";
 import CreateTicket from "./components/create-ticket.component";
 import CreateUser from "./components/create-user.component";
 import ManageUsers from "./components/manage-users.component";
@@ -15,11 +15,11 @@ import EditTicket from "./components/edit-ticket.component";
 export default function App() {
   return (
     <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="wrapper">
             <Sidebar />
             <div id="content">
-                <Route path="/" exact component={Dashboard} />
+                <Route path="/" exact component={TicketList} />
                 <Route path="/tickets/create" component={CreateTicket} />
                 <Route path="/manage-users" component={ManageUsers} />
                 <Route path="/users/create" component={CreateUser} />

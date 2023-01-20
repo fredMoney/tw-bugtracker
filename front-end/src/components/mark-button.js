@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class MarkButton extends React.Component {
+export default class MarkButton extends Component {
 	constructor(props) {
 		super(props);
 

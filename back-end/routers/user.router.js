@@ -21,9 +21,9 @@ router.post('/create', async (req, res, next) => {
     }
 })
 
-router.get('/:eid', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try {
-        const user = await User.findByPk(req.params.eid)
+        const user = await User.findByPk(req.params.id)
         if (user) {
             res.status(200).json(user)
         } else {

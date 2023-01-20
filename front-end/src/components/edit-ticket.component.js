@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const priorities = ['Low', 'Medium', 'High'];
 const statuses = ['Open', 'In Progress', 'Resolved'];
-const types = ['Bug/Error', 'Feature Request', 'Security', 'Other'];
+const types = ['Minor', 'Medium', 'Major'];
 
 export default class EditTicket extends Component {
     constructor(props) {
@@ -157,12 +157,14 @@ export default class EditTicket extends Component {
                     </div>
                     <div className="form-group">
                         <label>Description: </label>
-                        <input type="text"
-                               required
-                               className="form-control"
-                               value={this.state.description}
-                               onChange={this.onChangeDescription}
-                        />
+                        <textarea style={{resize: 'none'}}
+                        type="text"
+                        maxLength="250"
+                        rows="3"
+                        className="form-control"
+                        value={this.state.description}
+                        onChange={this.onChangeDescription}
+                        ></textarea>
                     </div>
                     <div className="form-group">
                         <label>Project: </label>

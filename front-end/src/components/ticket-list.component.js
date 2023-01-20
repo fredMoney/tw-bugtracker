@@ -67,7 +67,7 @@ export default class TicketList extends Component {
                             <th>Assigned To</th>
                             <th>Priority</th>
                             <th>Status</th>
-                            <th>Type</th>
+                            <th>Severity</th>
                             <th>Commit link</th>
                             <th>Actions</th>
                         </tr>
@@ -87,7 +87,7 @@ export default class TicketList extends Component {
                             <th>Assigned To</th>
                             <th>Priority</th>
                             <th>Status</th>
-                            <th>Type</th>
+                            <th>Severity</th>
                             <th>Commit link</th>
                             <th>Actions</th>
                         </tr>

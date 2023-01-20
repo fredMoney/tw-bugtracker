@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import http from 'http';
 
 import CreateProject from "./create-project.component";
 
@@ -42,8 +43,22 @@ export default class ManageProjects extends Component {
     }
 
     deleteProject(id) {
-	    axios.delete('http://localhost:5000/projects/'+id)
-	        .then(res => { console.log(res.data)});
+	    // axios.delete('http://localhost:5000/projects/'+id)
+	    //     .then(res => { console.log(res.data)});
+        const req = http
+            .request({
+                hostname: 'http://localhost:5000/',
+                path: '/projects/'+id,
+                method: 'DELETE'
+            }, res => {
+                // log the status
+                console.log('Status Code:', res.statusCode)
+              })
+            .on('error', err => {
+                console.log('Error: ', err.message)
+            })
+
+        req.end()
 
 	    // update tickets array to all projects without matching id
 	    this.setState({

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const priorities = ['Low', 'Medium', 'High'];
 const statuses = ['Open', 'In Progress', 'Resolved'];
-const types = ['Bug/Error', 'Feature Request', 'Security', 'Other'];
+const types = ['Minor', 'Medium', 'Major'];
 
 export default class CreateTicket extends Component {
 	constructor(props) {
@@ -225,7 +225,7 @@ export default class CreateTicket extends Component {
                     </select>
 					</div>
 					<div className="form-group">
-						<label>Type: </label>
+						<label>Severity: </label>
                         <select className="form-control"
                             value={this.state.type}
                             onChange={this.onChangeType}>

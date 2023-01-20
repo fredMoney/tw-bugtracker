@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // import components
 import Navbar from "./components/navbar.component";
-import Sidebar from "./components/sidebar.component";
 import TicketList from "./components/ticket-list.component";
 import CreateTicket from "./components/create-ticket.component";
 import CreateUser from "./components/create-user.component";
@@ -15,9 +14,8 @@ import EditTicket from "./components/edit-ticket.component";
 export default function App() {
   return (
     <Router>
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="wrapper">
-            <Sidebar />
             <div id="content">
                 <Route path="/" exact component={TicketList} />
                 <Route path="/tickets/create" component={CreateTicket} />

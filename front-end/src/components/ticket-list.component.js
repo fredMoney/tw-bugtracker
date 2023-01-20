@@ -20,7 +20,7 @@ export default class TicketList extends Component {
     }
 
     deleteTicket(id) {
-	    axios.delete('http://localhost:5000/tickets/'+id)
+	    axios.delete(`http://localhost:5000/tickets/${id}`)
 	        .then(res => { console.log(res.data)});
 
 	    // update tickets array to all tickets without matching id
@@ -68,6 +68,7 @@ export default class TicketList extends Component {
                             <th>Priority</th>
                             <th>Status</th>
                             <th>Type</th>
+                            <th>Commit link</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -87,6 +88,7 @@ export default class TicketList extends Component {
                             <th>Priority</th>
                             <th>Status</th>
                             <th>Type</th>
+                            <th>Commit link</th>
                             <th>Actions</th>
                         </tr>
                         </thead>

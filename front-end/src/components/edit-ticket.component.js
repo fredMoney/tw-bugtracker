@@ -16,6 +16,7 @@ export default class EditTicket extends Component {
         this.onChangePriority = this.onChangePriority.bind(this);
         this.onChangeStatus = this.onChangeStatus.bind(this);
         this.onChangeType = this.onChangeType.bind(this);
+        this.onChangeCommitLink = this.onChangeCommitLink.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = { 
@@ -26,6 +27,7 @@ export default class EditTicket extends Component {
   		    priority: '',
   		    status: '',
   		    type: '',
+            commitLink: '',
           users: [],
           projects: []
         };
@@ -42,7 +44,8 @@ export default class EditTicket extends Component {
                     assignee: res.data.assignee,
                     priority: res.data.priority,
                     status: res.data.status,
-                    type: res.data.type
+                    type: res.data.type,
+                    commitLink: res.data.commitLink
                 })
             })
             .catch((error) => { console.log(error); })
@@ -112,6 +115,12 @@ export default class EditTicket extends Component {
         })
     }
 
+    onChangeCommitLink(e) {
+        this.setState({
+            commitLink: e.target.value
+        })
+    }
+
     onSubmit(e) {
     	e.preventDefault();
 
@@ -122,7 +131,8 @@ export default class EditTicket extends Component {
             assignee: this.state.assignee,
             priority: this.state.priority,
             status: this.state.status,
-            type: this.state.type
+            type: this.state.type,
+            commitLink: this.state.commitLink
         }
 
         axios.post('http://localhost:5000/tickets/update/' + this.props.match.params.id, ticket)
@@ -228,6 +238,15 @@ export default class EditTicket extends Component {
                                   })
                               }
                       </select>
+                    </div>
+                    <div className="form-group">
+                        <label>Commit link: </label>
+                        <input type="text"
+                               required
+                               className="form-control"
+                               value={this.state.commitLink}
+                               onChange={this.onChangeCommitLink}
+                        />
                     </div>
 					<div className="form-group">
                         <input type="submit" value="Update Ticket" className="btn btn-primary" />

@@ -38,7 +38,7 @@ router.put('/update/:eid', async (req, res, next) => {
     try {
         const ticket = await Ticket.findByPk(req.params.eid)
         if (ticket) {
-            await ticket.update(req.body, { fields: ['title', 'description', 'projectName', 'assignee', 'priority', 'status', 'type'] })
+            await ticket.update(req.body, { fields: ['title', 'description', 'projectName', 'assignee', 'priority', 'status', 'type', 'commitLink'] })
             res.status(202).json({ message: 'accepted' })
         } else {
             res.status(404).json({ message: 'not found' })
@@ -48,9 +48,9 @@ router.put('/update/:eid', async (req, res, next) => {
     }
 })
 
-router.delete('/:eid', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
     try {
-        const ticket = await Ticket.findByPk(req.params.eid)
+        const ticket = await Ticket.findByPk(req.params.id)
         if (ticket) {
             await ticket.destroy()
             res.status(202).json({ message: 'accepted' })

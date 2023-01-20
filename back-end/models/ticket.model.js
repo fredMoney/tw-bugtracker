@@ -28,6 +28,10 @@ const Ticket = sequelize.define('ticket', {
     type: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    commitLink: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 });
 

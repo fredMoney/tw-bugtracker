@@ -5,9 +5,10 @@ import logo from '../assets/logo.jpg';
 export default class Sidebar extends Component {
 	render() {
 		return(
-			<nav class="col-md-2 d-none d-md-block sidebar">
+			<nav class="navbar navbar-dark bg-light navbar-expand-lg ml-auto">
+			<div className="container-fluid">
 	  			{/* <center><img src={logo} className="navbar-brand" width="120" alt="Tech support" /></center> */}
-	    		<ul class="nav flex-column">
+	    		<ul class="navbar-nav ml-auto">
 	    			<li className="nav-item">
 	    				<NavLink to="/" onlyActiveOnIndex={true} className="nav-link" activeClassName="active">
 	    					<i class="fas fa-home"></i>
@@ -33,6 +34,7 @@ export default class Sidebar extends Component {
                 		</NavLink>
             		</li>
 	    		</ul>
+				</div>
 			</nav>
 		);
 	}

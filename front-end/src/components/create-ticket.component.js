@@ -16,6 +16,7 @@ export default class CreateTicket extends Component {
         this.onChangePriority = this.onChangePriority.bind(this);
         this.onChangeStatus = this.onChangeStatus.bind(this);
         this.onChangeType = this.onChangeType.bind(this);
+        this.onChangeCommitLink = this.onChangeCommitLink.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = { 
@@ -26,6 +27,7 @@ export default class CreateTicket extends Component {
   		    priority: '',
   		    status: '',
   		    type: '',
+            commitLink: '',
           users: [],
           projects: []
         };
@@ -106,6 +108,12 @@ export default class CreateTicket extends Component {
         })
     }
 
+    onChangeCommitLink(e) {
+        this.setState({
+            type: e.target.value
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -116,7 +124,8 @@ export default class CreateTicket extends Component {
             assignee: this.state.assignee,
             priority: this.state.priority,
             status: this.state.status,
-            type: this.state.type
+            type: this.state.type,
+            commitLink: this.state.commitLink
         }
 
         axios.post('http://localhost:5000/tickets/create', ticket)
@@ -130,7 +139,8 @@ export default class CreateTicket extends Component {
           description: '',
           priority: '',
           status: '',
-          type: ''
+          type: '',
+          commitLink: ''
         });
     }
 
@@ -141,99 +151,107 @@ export default class CreateTicket extends Component {
 				<form onSubmit={this.onSubmit}>
 					<div className="form-group">
 						<label>Title: </label>
-            	<input type="text"
-                  className="form-control"
-                  value={this.state.title}
-                  onChange={this.onChangeTitle}
-            	/>
+                        <input type="text"
+                        className="form-control"
+                        value={this.state.title}
+                        onChange={this.onChangeTitle}
+                        />
 					</div>
 					<div className="form-group">
 						<label>Description: </label>
-            	<textarea style={{resize: 'none'}}
-                  type="text"
-                  maxLength="250"
-                  rows="3"
-                  className="form-control"
-                  value={this.state.description}
-                  onChange={this.onChangeDescription}
-            	></textarea>
+                        <textarea style={{resize: 'none'}}
+                        type="text"
+                        maxLength="250"
+                        rows="3"
+                        className="form-control"
+                        value={this.state.description}
+                        onChange={this.onChangeDescription}
+                        ></textarea>
 					</div>
 					<div className="form-group">
 						<label>Project Name: </label>
-            	<select className="form-control"
-                      value={this.state.projectName}
-                      onChange={this.onChangeProjectName}>
-                      {
-                          this.state.projects.map((project) => {
-                          return <option key={project}
-                                         value={project}>{project}
-                                 </option>;
-                          })
-                      }
-              </select>
+                        <select className="form-control"
+                            value={this.state.projectName}
+                            onChange={this.onChangeProjectName}>
+                            {
+                                this.state.projects.map((project) => {
+                                return <option key={project}
+                                                value={project}>{project}
+                                        </option>;
+                                })
+                            }
+                    </select>
 					</div>
-          <div className="form-group">
-            <label>Assigned To: </label>
-              <select className="form-control"
-                      value={this.state.assignee}
-                      onChange={this.onChangeAssignee}>
-                      {
-                        this.state.users.map((user) => {
-                        return <option key={user}
-                                       value={user}>{user}
-                               </option>;
-                        })
-                      }
-              </select>
-          </div>
+                    <div className="form-group">
+                        <label>Assigned To: </label>
+                        <select className="form-control"
+                                value={this.state.assignee}
+                                onChange={this.onChangeAssignee}>
+                                {
+                                    this.state.users.map((user) => {
+                                    return <option key={user}
+                                                value={user}>{user}
+                                        </option>;
+                                    })
+                                }
+                        </select>
+                    </div>
 					<div className="form-group">
 						<label>Priority: </label>
-            	<select className="form-control"
-                      value={this.state.priority}
-                      onChange={this.onChangePriority}>
-                      {
-                          priorities.map((priority) => {
-                          return <option key={priority}
-                                         value={priority}>{priority}
-                                 </option>;
-                          })
-                      }
-              </select>
+                        <select className="form-control"
+                            value={this.state.priority}
+                            onChange={this.onChangePriority}>
+                            {
+                                priorities.map((priority) => {
+                                return <option key={priority}
+                                                value={priority}>{priority}
+                                        </option>;
+                                })
+                            }
+                    </select>
 					</div>
 					<div className="form-group">
 						<label>Status: </label>
-            	<select className="form-control"
-                      value={this.state.status}
-                      onChange={this.onChangeStatus}>
-                      {
-                          statuses.map((status) => {
-                          return <option key={status}
-                                         value={status}>{status}
-                                 </option>;
-                          })
-                      }
-              </select>
+                        <select className="form-control"
+                            value={this.state.status}
+                            onChange={this.onChangeStatus}>
+                            {
+                                statuses.map((status) => {
+                                return <option key={status}
+                                                value={status}>{status}
+                                        </option>;
+                                })
+                            }
+                    </select>
 					</div>
 					<div className="form-group">
 						<label>Type: </label>
-            	<select className="form-control"
-                      value={this.state.type}
-                      onChange={this.onChangeType}>
-                      {
-                          types.map((type) => {
-                          return <option key={type}
-                                         value={type}>{type}
-                                 </option>;
-                          })
-                      }
-              </select>
+                        <select className="form-control"
+                            value={this.state.type}
+                            onChange={this.onChangeType}>
+                            {
+                                types.map((type) => {
+                                return <option key={type}
+                                                value={type}>{type}
+                                        </option>;
+                                })
+                            }
+                    </select>
+					</div>
+                    <div className="form-group">
+						<label>Commit link: </label>
+                        <input type="text"
+                        className="form-control"
+                        value={this.state.commitLink}
+                        onChange={this.onChangeCommitLink}
+                        />
 					</div>
 					<div className="form-group">
-              <input type="submit"
-                   value="Submit Ticket"
-                   className="btn btn-primary"
-              />
-          </div>
+                        <input type="submit"
+                            value="Submit Ticket"
+                            className="btn btn-primary"
+                        />
+                    </div>
 				</form>
 			</div>
 		);
